@@ -1,0 +1,1 @@
+This repo is to build an AMI using packer. After the AMI is built and configured using salt, it will be started using terraform.
