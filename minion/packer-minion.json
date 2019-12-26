@@ -1,0 +1,26 @@
+{
+
+  "builders": [
+   {
+     "type": "amazon-ebs",
+     "access_key": "{{ user `aws_access_key` }}",
+     "secret_key": "{{ user `aws_secret_key` }}",
+     "region": "us-east-1",
+     "source_ami": "{{ user `source_ami` }}",
+     "instance_type": "t2.medium",
+     "ssh_username": "ubuntu",
+     "ami_name": "ubuntu18-minion {{timestamp}}",
+     "vpc_id": "{{ user `vpc_id` }}",
+     "subnet_id": "{{ user `subnet_id`}} ",
+     "associate_public_ip_address": "True",
+     "shutdown_behavior": "terminate"
+   }
+ ],
+ "provisioners": [
+    {      "type": "shell",
+     "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E '{{ .Path }}'",
+     "script": "setup-minion.sh"
+   }
+ ]
+}
+
