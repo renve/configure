@@ -14,21 +14,21 @@
      "source_ami": "ami-04b9e92b5572fa0d1",
      "instance_type": "t2.medium",
      "ssh_username": "ubuntu",
-     "ami_name": "ubuntu18-rene {{timestamp}}"
+     "ami_name": "ubuntu18-rene-master.{{timestamp}}"
    },
    {
     "type": "amazon-ebs",
     "access_key": "",
     "secret_key": "",
     "region": "us-east-1",
-    "source_ami": "ami-02eac2c0129f6376b",
+    "source_ami": ""ami-04b9e92b5572fa0d1",
     "instance_type": "t2.medium",
-    "ssh_username": "centos",
-    "ami_name": "centos7-rene {{timestamp}}"
+    "ssh_username": "ubuntu",
+    "ami_name": "ubuntu-rene-minion.{{timestamp}}"
    } 
  ],
  "provisioners": [
-    {      "type": "ansible",
+    {      "type": "shell",
      "script": "setup.sh"
    }
  ]
